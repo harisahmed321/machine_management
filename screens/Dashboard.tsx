@@ -9,7 +9,7 @@ import {
   View
 } from "react-native";
 
-const Dashboard = ({ navigation }) => {
+const Dashboard = () => {
   const [text, onChangeText] = useState("");
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
@@ -27,10 +27,10 @@ const Dashboard = ({ navigation }) => {
         value={isEnabled}
       />
       <TextInput placeholder="number" keyboardType="numeric" />
-      <Button
+      {/* <Button
         title={"Go To Manage Categoreis"}
-        onPress={() => navigation.navigate("ManageCategories")}
-      ></Button>
+        onPress={() => navigation.openDrawer()}
+      ></Button> */}
     </View>
   );
 };
