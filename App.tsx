@@ -1,27 +1,30 @@
+import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Dashboard from "./pages/dashboard/dashboard.pages";
-import ManageCategories from "./pages/manage-categories/manage-categories.pages";
+import Dashboard from "./screens/Dashboard";
+import ManageCategories from "./screens/ManageCategories";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Dashboard">
-        <Stack.Screen
+      <Drawer.Navigator
+        initialRouteName="Dashboard"
+        useLegacyImplementation={true}
+      >
+        <Drawer.Screen
           name="Dashboard"
           component={Dashboard}
           options={{ title: "Dashboard" }}
         />
-        <Stack.Screen
+        <Drawer.Screen
           name="ManageCategories"
           component={ManageCategories}
           options={{ title: "Manage Categories" }}
         />
-      </Stack.Navigator>
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };
